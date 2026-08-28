@@ -285,10 +285,10 @@ def present(  # noqa: C901
         logger.debug("No configuration file found, using default configuration.")
         config = Config()
 
-    if start_at[0]:
+    if start_at[0] is not None:
         start_at_scene_number = start_at[0]
 
-    if start_at[1]:
+    if start_at[1] is not None:
         start_at_slide_number = start_at[1]
 
     from qtpy.QtCore import Qt

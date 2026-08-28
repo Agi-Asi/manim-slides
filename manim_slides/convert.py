@@ -872,7 +872,7 @@ class PowerPoint(Converter):
                             str(file),
                             self.left,
                             self.top,
-                            self.width * 9625,
+                            self.width * 9525,
                             self.height * 9525,
                         )
                     else:
