@@ -125,7 +125,7 @@ class Keys(BaseModel):
     def merge_with(self, other: "Keys") -> "Keys":
         for key_name, key in self:
             other_key = getattr(other, key_name)
-            key.ids = list(set(key.ids).union(other_key.ids))
+            key.ids = set(key.ids).union(other_key.ids)
             key.name = other_key.name or key.name
 
         return self
