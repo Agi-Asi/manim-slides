@@ -233,7 +233,7 @@ class Player(QMainWindow):
             self.move(screen.geometry().topLeft())
 
         if full_screen:
-            self.setWindowState(Qt.WindowState.WindowFullScreen)
+            self.showFullScreen()
         else:
             w, h = self.current_presentation_config.resolution
             geometry = self.geometry()
@@ -623,12 +623,12 @@ class Player(QMainWindow):
 
     @Slot()
     def full_screen(self) -> None:
-        if self.windowState() == Qt.WindowState.WindowFullScreen:
-            self.setWindowState(Qt.WindowState.WindowNoState)
-            self.info.setWindowState(Qt.WindowState.WindowNoState)
+        if self.isFullScreen():
+            self.showNormal()
+            self.info.showNormal()
         else:
-            self.setWindowState(Qt.WindowState.WindowFullScreen)
-            self.info.setWindowState(Qt.WindowState.WindowFullScreen)
+            self.showFullScreen()
+            self.info.showFullScreen()
 
     @Slot()
     def hide_mouse(self) -> None:
